@@ -47,6 +47,7 @@ main{padding:18px}
 .big-btn.alt2{background:#5a6b8a}
 .big-btn.alt2:hover{background:#48566f}
 .exq-jp{font-size:1.5rem;font-weight:800;color:var(--ink)}
+.voice-info{margin-top:8px;font-size:.82rem;color:var(--sub);line-height:1.5}
 .ghost-btn.wide{width:100%}
 #stage-home .big-btn,#stage-home .ghost-btn{margin-top:12px}
 .day-jump{display:flex;align-items:center;gap:10px;justify-content:center;margin-bottom:4px}

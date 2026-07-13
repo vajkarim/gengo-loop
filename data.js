@@ -315,7 +315,7 @@ window.SENTENCES = [
   { wordId:"weather",exprId:"e_was",    tr:{ en:{ s:"The weather was bad yesterday.",jp:"昨日は天気が悪かった。" } } },
   { wordId:"rain",   exprId:"e_ing",    tr:{ en:{ s:"It's raining right now.",      jp:"今、雨が降ってる。" } } },
   { wordId:"kid",    exprId:"e_was",    tr:{ en:{ s:"I was a shy kid.",             jp:"私は内気な子どもだった。" } } },
-  { wordId:"name",   exprId:"e_name",   tr:{ en:{ s:"I'm Ken.",                    jp:"私はケンです。" } } },
+  { wordId:"name",   exprId:"e_name",   tr:{ en:{ s:"I'm Yuta.",                    jp:"私はユウタです。" } } },
   { wordId:"morning",exprId:"e_do",     tr:{ en:{ s:"I run in the morning.",        jp:"朝に走る。" } } },
   { wordId:"night",  exprId:"e_do",     tr:{ en:{ s:"I read at night.",             jp:"夜に本を読む。" } } },
   { wordId:"people", exprId:"e_like",   tr:{ en:{ s:"I like meeting new people.",   jp:"新しい人に会うのが好き。" } } },
