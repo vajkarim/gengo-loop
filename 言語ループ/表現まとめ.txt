@@ -1,0 +1,94 @@
+【言語ループ 表現まとめ（日本語パターン = 英語テンプレ／口語）】
+※ {W} に単語を入れる。使用例つき。すべて話し言葉寄り。
+
+────────────────────────────────
+■ 現在
+────────────────────────────────
+私は〜です（気持ち・身分）= I'm {W}.
+  例) I'm tired. / I'm a student. / I'm hungry.
+私の名前は〜です = I'm {W}.
+  例) I'm Yuta.
+〜する = I {W}.
+  例) I run in the morning. / I read at night.
+〜しているところだ = I'm {W} right now.
+  例) I'm listening to music right now.
+〜できる = I can {W}.
+  例) Can you take a photo? / I can swim.
+〜が好きだ = I like {W}.
+  例) I like Japanese food. / I love my family.
+
+────────────────────────────────
+■ 過去
+────────────────────────────────
+〜だった = It was {W}.
+  例) It was fun! / The weather was bad yesterday.
+〜した = I {W} yesterday.
+  例) I watched a movie last night. / I met a friend yesterday.
+
+────────────────────────────────
+■ 経験
+────────────────────────────────
+〜したことがある = I've {W} before.
+  例) I've read this book before.
+〜に行ったことがある = I've been to {W}.
+  例) I've been to this place. / I've been to that station.
+
+────────────────────────────────
+■ 時・条件
+────────────────────────────────
+もし〜ならば = If {W}, ...
+  例) If you're free, tell me.
+〜のとき = When {W}, ...
+  例) When you're ready, call me.
+
+────────────────────────────────
+■ 依頼・提案
+────────────────────────────────
+〜してください = Can you {W}? / Please {W}.
+  例) Can you get me some water?
+〜しましょう = Let's {W}.
+  例) Let's go shopping!
+
+────────────────────────────────
+■ 意見・感想
+────────────────────────────────
+〜だと思う = I think {W}.
+  例) I think it's good.
+〜したい = I wanna {W}.
+  例) I wanna go home. / I wanna watch a movie.
+〜しなければならない = I gotta {W}. (I have to {W})
+  例) I gotta save money.
+〜することは〇〇だ = {W} is ...
+  例) This food is really good. / This is important.
+
+────────────────────────────────
+■ 未来
+────────────────────────────────
+〜するつもりだ = I'm gonna {W}. (I'm going to {W})
+  例) I'm gonna buy a new car. / I'm gonna call my mom.
+
+────────────────────────────────
+■ 質問
+────────────────────────────────
+あなたは〜ですか？ = Are you {W}?
+  例) Are you hungry? / Are you busy now?
+あなたは〜しますか？ = Do you {W}?
+  例) Do you have time?
+あなたは〜したことがありますか？ = Have you ever {W}?
+  例) Have you ever been to Japan?
+何を（いつ/どこで/どのように）しますか？ = What/When/Where/How do you {W}?
+  例) Where's the station? / Where's the bathroom?
+
+────────────────────────────────
+■ 否定
+────────────────────────────────
+〜ではない = I'm not {W}.
+  例) I'm not busy.
+〜しない = I don't {W}.
+  例) I don't drink coffee.
+〜できない = I can't {W}.
+  例) I can't come today.
+〜したことがない = I've never {W}.
+  例) I've never tried that.
+〜しなくてもよい = I don't have to {W}.
+  例) I don't have much money. / I don't have to go.
