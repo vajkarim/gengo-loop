@@ -22,15 +22,31 @@
 
   /* ---------- 音声 (Web Speech API) ---------- */
   let voices = [];
-  function loadVoices(){ voices = window.speechSynthesis ? speechSynthesis.getVoices() : []; buildVoiceOptions(); }
-  if(window.speechSynthesis){ speechSynthesis.onvoiceschanged = loadVoices; loadVoices(); }
+  function loadVoices(){ voices = window.speechSynthesis ? (speechSynthesis.getVoices()||[]) : []; buildVoiceOptions(); }
+  if(window.speechSynthesis){
+    speechSynthesis.onvoiceschanged = loadVoices;
+    loadVoices();
+    // オンライン音声(Edge等)は遅れて読み込まれるので数回リトライ
+    [400,1200,3000,6000].forEach(t=>setTimeout(loadVoices, t));
+  }
+  // その言語に最適な声を選ぶ: 手動指定 > オンライン(Natural/Google)優先 > その他
+  function pickVoice(voiceLang){
+    const pref = voiceLang.slice(0,2).toLowerCase();
+    const matches = voices.filter(v=>v.lang && v.lang.toLowerCase().startsWith(pref));
+    if(!matches.length) return null;
+    // 手動選択（ただし現在の言語に一致するものだけ）
+    if(S.voiceName){ const v=matches.find(v=>v.name===S.voiceName); if(v) return v; }
+    // スコア: オンライン(=localService:false)を最優先、名前に Natural/Google/Online があれば加点
+    const score = v => (v.localService ? 0 : 10) + (/natural|google|online/i.test(v.name) ? 3 : 0);
+    return matches.slice().sort((a,b)=>score(b)-score(a))[0];
+  }
   function speak(text, rateMul=1){
     if(!window.speechSynthesis || !text) return;
     speechSynthesis.cancel();
     const u = new SpeechSynthesisUtterance(text);
     u.lang = (LANGS[S.lang]||{}).voiceLang || "en-US";
     u.rate = Math.max(0.5, S.rate*rateMul);
-    const v = voices.find(v=>v.name===S.voiceName) || voices.find(v=>v.lang && v.lang.startsWith(u.lang.slice(0,2)));
+    const v = pickVoice(u.lang);
     if(v) u.voice = v;
     speechSynthesis.speak(u);
   }
@@ -412,16 +428,28 @@
     const lang=(LANGS[S.lang]||{}).voiceLang||"en";
     const vs=voices.filter(v=>v.lang && v.lang.startsWith(lang.slice(0,2)));
     sel.innerHTML="";
-    const auto=document.createElement("option"); auto.value=""; auto.textContent="自動（おすすめ）"; sel.appendChild(auto);
+    const auto=document.createElement("option"); auto.value=""; auto.textContent="自動（オンライン優先）"; sel.appendChild(auto);
     vs.forEach(v=>{ const o=document.createElement("option"); o.value=v.name; o.textContent=`${v.name} (${v.lang})`; sel.appendChild(o); });
     sel.value=S.voiceName;
+    updateVoiceInfo();
+  }
+  // 実際にこの言語で使われる声を表示（診断用）
+  function updateVoiceInfo(){
+    const el=$("#voiceInfo"); if(!el) return;
+    const vl=(LANGS[S.lang]||{}).voiceLang||"en-US";
+    const v=pickVoice(vl);
+    const cnt=voices.filter(x=>x.lang && x.lang.toLowerCase().startsWith(vl.slice(0,2).toLowerCase())).length;
+    el.textContent = v
+      ? `🔎 実際の声：${v.name}（${v.localService?"内蔵/オフライン":"オンライン"}）／この言語の候補 ${cnt}件`
+      : `🔎 実際の声：なし → システム既定で代読（この言語の声が0件）`;
   }
   $("#langSelect").onchange=e=>{ S.lang=e.target.value; S.voiceName=""; save(); buildVoiceOptions(); goHome(); };
   $("#newCountSelect").onchange=e=>{ S.newCount=+e.target.value; save(); goHome(); };
-  $("#voiceSelect").onchange=e=>{ S.voiceName=e.target.value; save(); };
+  $("#voiceSelect").onchange=e=>{ S.voiceName=e.target.value; save(); updateVoiceInfo(); };
   $("#rateRange").oninput=e=>{ S.rate=+e.target.value; $("#rateVal").textContent=S.rate.toFixed(1); };
   $("#rateRange").onchange=save;
-  $("#testVoice").onclick=()=>speak("Hi! This is a voice test.");
+  $("#testVoice").onclick=()=>{ speak("Hi! This is a voice test."); setTimeout(loadVoices, 800); };
+  $("#reloadVoices").onclick=()=>{ loadVoices(); };
   $("#resetBtn").onclick=()=>{
     if(confirm("進捗をすべてリセットしますか？（Day1に戻ります）")){ S=defState(); save(); initSettingsUI(); goHome(); }
   };

@@ -334,7 +334,7 @@
 
   /* ---------- 例文（コア24文 × 各言語）※ jp対訳は英語エントリを流用 ---------- */
   const sents = {
-    "name|e_name":   { hi:"मेरा नाम केन है।", ne:"मेरो नाम केन हो।", id:"Nama saya Ken.", zh:"我叫Ken。", vi:"Tôi tên là Ken." },
+    "name|e_name":   { hi:"मेरा नाम युता है।", ne:"मेरो नाम युता हो।", id:"Nama saya Yuta.", zh:"我叫Yuta。", vi:"Tôi tên là Yuta." },
     "student|e_am":  { hi:"मैं छात्र हूँ।", ne:"म विद्यार्थी हुँ।", id:"Saya pelajar.", zh:"我是学生。", vi:"Tôi là học sinh." },
     "japanese|e_am": { hi:"मैं जापानी हूँ।", ne:"म जापानी हुँ।", id:"Saya orang Jepang.", zh:"我是日本人。", vi:"Tôi là người Nhật." },
     "tired|e_am":    { hi:"मैं आज बहुत थका हुआ हूँ।", ne:"म आज धेरै थकित छु।", id:"Saya sangat lelah hari ini.", zh:"我今天很累。", vi:"Hôm nay tôi rất mệt." },
@@ -405,6 +405,35 @@
     know:"zhīdào", meet:"jiànmiàn", wait:"děng", write:"xiě", have:"yǒu", start:"kāishǐ"
   };
   Object.keys(zhRoma).forEach(id=>{ if(W[id]&&W[id].tr.zh) W[id].tr.zh.roma = zhRoma[id]; });
+
+  /* ---------- マンダリン: 残り全単語のピンイン ---------- */
+  const zhRoma2 = {
+    finish:"jiéshù", think:"xiǎng", send:"fāsòng", be:"shì", understand:"dǒng", read:"dú", help:"bāngzhù",
+    like:"xǐhuan", enter:"jìnrù", arrive:"dàodá", remember:"jìde", quit:"tíngzhǐ", become:"chéngwéi",
+    study:"xuéxí", ride:"zuò", go_home:"huí jiā", happy:"kāixīn", favorite:"zuì xǐhuan de", foreign:"wàiguó de",
+    smart:"cōngmíng", japan:"Rìběn", japanese:"Rìběnrén", morning:"zǎoshang", night:"wǎnshang", friend:"péngyǒu",
+    home:"jiā", culture:"wénhuà", car:"chē", food:"shíwù", family:"jiārén", photo:"zhàopiàn", student:"xuésheng",
+    station:"chēzhàn", lang:"Zhōngwén", movie:"diànyǐng", resto:"cāntīng", hotel:"jiǔdiàn", mom:"māma", dad:"bàba",
+    woman:"nǚrén", man:"nánrén", train:"huǒchē", place:"dìfang", brother:"xiōngdì", sister:"jiěmèi", problem:"wèntí",
+    people:"rénmen", shopping:"gòuwù", every_all:"yīqiè", company:"gōngsī", money:"qián", time:"shíjiān",
+    store:"shāngdiàn", kid:"háizi", weather:"tiānqì", name:"míngzi", rain:"yǔ", music:"yīnyuè", water:"shuǐ",
+    message:"xiāoxi", bathroom:"xǐshǒujiān", book:"shū", very:"hěn", a_little:"yìdiǎn", maybe:"yěxǔ", together:"yìqǐ",
+    later:"dāihuì", usually:"tōngcháng", still:"hái", also:"yě", often:"jīngcháng", only:"zhǐ", about:"dàyuē",
+    well:"hǎo", again:"zài", nice:"yǒushàn", tall:"gāo", big:"dà", small:"xiǎo", hot:"rè", hard:"nán", easy:"jiǎndān",
+    yummy:"hǎochī", a_lot:"hěnduō", different:"bùtóng", important:"zhòngyào", famous:"yǒumíng", fun:"yǒuqù",
+    similar:"xiāngsì", busy:"máng", long:"cháng", pretty:"měi", cheap:"piányi", pricey:"guì", sad:"nánguò",
+    far:"yuǎn", close:"jìn", tired:"lèi", hungry:"è", new:"xīn", good:"hǎo", every:"měi", first:"dì-yī",
+    last:"shàng yī ge", next:"xià yī ge", what:"shénme", when:"shénme shíhou", where:"nǎlǐ", how:"zěnme",
+    how_much:"duōshǎo qián", how_long:"duōjiǔ", why:"wèishénme", who:"shéi", which:"nǎge", what_time:"jǐ diǎn",
+    how_old:"jǐ suì", or:"huòzhě", so:"suǒyǐ", but:"dànshì", and:"hé", with:"hé", from:"cóng", for:"wèile",
+    of:"de", at:"zài", to:"dào", here:"zhèlǐ", there:"nàlǐ", today:"jīntiān", tomorrow:"míngtiān",
+    yesterday:"zuótiān", day:"tiān", week:"xīngqī", month:"yuè", year:"nián", now:"xiànzài", one:"yī", two:"èr",
+    three:"sān", my_age:"nǐ de niánlíng", birth_month:"chūshēng yuèfèn", birth_day:"chūshēng rìqī", yes:"shì",
+    awesome:"tài bàng le", really:"zhēnde ma", no:"bù", too_bad:"tài kěxī le", i_see:"yuánlái rúcǐ",
+    g_morning:"zǎoshang hǎo", hi:"nǐ hǎo", g_evening:"wǎnshang hǎo", bye:"zàijiàn", excuse_me:"dǎrǎo yīxià",
+    thanks:"xièxie", sorry:"duìbùqǐ", how_are_you:"nǐ hǎo ma", nice_meet:"hěn gāoxìng rènshi nǐ"
+  };
+  Object.keys(zhRoma2).forEach(id=>{ if(W[id]&&W[id].tr.zh) W[id].tr.zh.roma = zhRoma2[id]; });
 
   /* ---------- マンダリン Day1: 例文（漢字＋ピンイン） ---------- */
   const zhSents = {
@@ -646,7 +675,7 @@
     "movie|e_wanna":"Wǒ jīnwǎn xiǎng kàn diànyǐng.","car|e_gonna":"Wǒ yào mǎi yī liàng xīn chē.","photo|e_can":"Nǐ kěyǐ pāi zhāng zhào ma?",
     "station|e_where":"Chēzhàn zài nǎlǐ?","money|e_dont_have":"Wǒ méiyǒu hěnduō qián.","time|e_dont_have":"Wǒ jīntiān méiyǒu shíjiān.",
     "shopping|e_lets":"Wǒmen qù gòuwù ba!","music|e_like":"Wǒ xǐhuan zhège yīnyuè.","water|e_wanna":"Wǒ xiǎng hē shuǐ.",
-    "bathroom|e_where":"Xǐshǒujiān zài nǎlǐ?","weather|e_is":"Jīntiān tiānqì hěn hǎo.","name|e_name":"Wǒ jiào Ken.",
+    "bathroom|e_where":"Xǐshǒujiān zài nǎlǐ?","weather|e_is":"Jīntiān tiānqì hěn hǎo.","name|e_name":"Wǒ jiào Yuta.",
     "home|e_wanna":"Wǒ xiǎng huí jiā.","student|e_am":"Wǒ shì xuésheng.","japanese|e_am":"Wǒ shì Rìběnrén.",
     "tired|e_am":"Wǒ jīntiān hěn lèi.","hungry|e_am":"Wǒ xiànzài hěn è.","hungry|e_are_you":"Nǐ è ma?",
     "busy|e_am":"Wǒ jīntiān hěn máng.","busy|e_are_you":"Nǐ xiànzài máng ma?","good|e_am":"Wǒ hěn hǎo, xièxie.",
